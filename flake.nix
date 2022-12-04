@@ -12,6 +12,7 @@
         default = pkgs.${system}.mkShellNoCC {
           packages = with pkgs.${system}; [
             black
+            nodePackages.pyright
             python310
           ];
         };

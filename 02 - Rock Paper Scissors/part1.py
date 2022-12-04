@@ -50,6 +50,7 @@ def decode_play(play: str) -> str:
             return "paper"
         case "C" | "Z":
             return "scissors"
+    raise ValueError(f"invalid play {play}")
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
 
 from functools import reduce
 from itertools import islice
-from typing import List
+from typing import List, Set
 
 
 GROUP_SIZE = 3
@@ -23,7 +23,10 @@ def main() -> None:
 
 
 def get_badge(group: List[str]) -> str:
-    return reduce(lambda x, y: set(x).intersection(set(y)), group).pop()
+    def intersect(x: Set[str], y: Set[str]) -> Set[str]:
+        return set(x).intersection(set(y))
+
+    return reduce(intersect, (set(rucksack) for rucksack in group)).pop()
 
 
 def priority(item: str) -> int:
