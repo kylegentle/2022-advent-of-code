@@ -8,11 +8,7 @@
       pkgs = forAllSystems (system: nixpkgs.legacyPackages.${system});
     in
     {
-#       packages = forAllSystems (system: {
-#         default = pkgs.${system}.poetry2nix.mkPoetryApplication { projectDir = self; };
-#       });
-# 
-      devShells = forAllSystems (system: {
+     devShells = forAllSystems (system: {
         default = pkgs.${system}.mkShellNoCC {
           packages = with pkgs.${system}; [
             black
