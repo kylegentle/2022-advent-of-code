@@ -24,7 +24,7 @@ def main() -> None:
 
 def get_badge(group: List[str]) -> str:
     def intersect(x: Set[str], y: Set[str]) -> Set[str]:
-        return set(x).intersection(set(y))
+        return x.intersection(y)
 
     return reduce(intersect, (set(rucksack) for rucksack in group)).pop()
 
