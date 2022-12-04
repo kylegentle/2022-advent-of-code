@@ -15,6 +15,7 @@
       devShells = forAllSystems (system: {
         default = pkgs.${system}.mkShellNoCC {
           packages = with pkgs.${system}; [
+            black
             python310
           ];
         };
